@@ -228,3 +228,5 @@ rodamos o _test:watch_ para verificar se passou.'
 ```JSON
   "build": "tsc && tsc-alias",
 ```
+
+### Fechamos assim a configuração de um setup padrão dentro do proposto.
