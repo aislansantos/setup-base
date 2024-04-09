@@ -231,3 +231,4 @@ rodamos o _test:watch_ para verificar se passou.'
 ```
 
 ### Fechamos assim a configuração de um setup padrão dentro do proposto
+ ajustes
