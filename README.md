@@ -131,6 +131,7 @@ Esse comando garante que vamos rodar o commmit lint no código
 npx --no -- commitlint --edit ${1}
 ```
 
+
 ### JEST
 
 #### npm install jest @types/jest ts-jest
@@ -229,4 +230,4 @@ rodamos o _test:watch_ para verificar se passou.'
   "build": "tsc && tsc-alias",
 ```
 
-### Fechamos assim a configuração de um setup padrão dentro do proposto.
+### Fechamos assim a configuração de um setup padrão dentro do proposto
