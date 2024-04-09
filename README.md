@@ -125,3 +125,8 @@ module.exports = { extends: ["@commitlint/config-conventional"] };
 
 npx --no -- commitlint --edit ${1}
 ```
+
+
+### JEST
+
+<b>npm install jest @types/jest ts-jest</b>
