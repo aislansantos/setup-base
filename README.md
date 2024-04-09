@@ -64,10 +64,30 @@ o husky e o lint-staged
 
 Na sequecia vai temos de criar um script dentro do package:
 
-#### "husky:prepare": "husky install"
+#### "husky:prepare": "husky init"
 
 <p>na sequencia damos o comando <b>npm husky:prepare</b> que vai criar o git hooks </p>
 
+#### "prepare": "husky"
+* script dentro do package.json: "husk:prepare": "husky init";
+
+* rodar o comando que vai ser criado o script depois do comando acima: npm run prepare;
+
+
+Dentro da pasta .husky abrir o arquivo shell pre-commit para configurar:
+* temos de configurar o package.json com os comandos que vamos rodar no pre-commit:
+  * npx lint-staged
+
 <p>Vamos criar <b>.lintstagedrc.json</b> para configuração do lint-staged </p>
 
-<p>Vamos rodar <b>npx husky .husky/pre-commit "npm lint-staged"</b> para criar um pre-commit </p>
+~~~JSON
+{ 
+  "src/**/*.tá": [ "eslint --fix", "prettier --write" ]
+}
+~~~
+
+
+
+
+
+
