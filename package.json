@@ -9,7 +9,9 @@
     "prepare": "husky",
     "test": "jest --passWithNoTests",
     "test:watch": "npm test --watch",
-    "teste:staged": "npm test --findRelatedTests"
+    "test:staged": "npm test --findRelatedTests",
+    "test:push": "npm teste --coverage"
+
   },
   "keywords": [],
   "author": "",

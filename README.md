@@ -147,4 +147,21 @@ module.exports = {
 };
 ```
 
+<p>scripts de teste:</p>
+
+~~~JSON
+    "test": "jest --passWithNoTests",
+    "test:watch": "npm test --watch",
+    "test:staged": "npm test --findRelatedTests",
+    "test:push": "npm teste --coverage"
+~~~
+
+
+<p>lintstaged.config.json com o os testes configurados:</p>
+
+~~~JSON
+{
+  "src/**/*.ts": ["eslint --fix", "prettier --write", "npm run teste:staged"]
+}
+~~~
 
