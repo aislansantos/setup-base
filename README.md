@@ -69,25 +69,59 @@ Na sequecia vai temos de criar um script dentro do package:
 <p>na sequencia damos o comando <b>npm husky:prepare</b> que vai criar o git hooks </p>
 
 #### "prepare": "husky"
-* script dentro do package.json: "husk:prepare": "husky init";
 
-* rodar o comando que vai ser criado o script depois do comando acima: npm run prepare;
+- script dentro do package.json: "husk:prepare": "husky init";
 
+- rodar o comando que vai ser criado o script depois do comando acima: npm run prepare;
 
 Dentro da pasta .husky abrir o arquivo shell pre-commit para configurar:
-* temos de configurar o package.json com os comandos que vamos rodar no pre-commit:
-  * npx lint-staged
+
+- temos de configurar o package.json com os comandos que vamos rodar no pre-commit:
+  - npx lint-staged
 
 <p>Vamos criar <b>.lintstagedrc.json</b> para configuração do lint-staged </p>
 
-~~~JSON
-{ 
-  "src/**/*.tá": [ "eslint --fix", "prettier --write" ]
+```JSON
+{
+  "src/**/*.ts": [ "eslint --fix", "prettier --write" ]
 }
-~~~
+```
 
+## commitlint/config-conventional
 
+<p>Configura um padrão para comitar as alteraçoes:
+https://www.npmjs.com/package/@commitlint/config-conventional</p>
 
+<p>Instala commitlint</p>
 
+<b>npm install --save-dev @commitlint/config-conventional @commitlint/cli</b>
 
+<p>Cria o arquivo de config</p>
 
+<b>echo "export default {extends: ['@commitlint/config-conventional']};" > commitlint.config.js</b>
+
+<p>Dentro do arquivo commitlint.config.js que vai ser criado, colocar o seguinte comando</p>
+
+<i>Tem dois comandos porque o primeiro está com erro para o modules, usando o seggundo por enquanto</i>
+
+```javascript
+// export default {extends: ['@commitlint/config-conventional']};
+module.exports = { extends: ["@commitlint/config-conventional"] };
+```
+
+<p>No seguinte link temos a regras para commit</p>
+
+<a href="https://github.com/conventional-changelog/commitlint">https://github.com/conventional-changelog/commitlint</a>
+
+<p>Vamos criar o arquivo de mensagem do husky</p>
+<b>echo "npx --no -- commitlint --edit \$1" > .husky/commit-msg</b>
+
+<p>Dentro do arquivo commit-msg vamos colocar o seguinte comando:</p>
+<p>Esse comando garante que vamos rodar o commmit lint no código</p>
+
+```SHELL
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+npx --no -- commitlint --edit ${1}
+```
