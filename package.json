@@ -10,7 +10,7 @@
     "test": "jest --passWithNoTests",
     "test:watch": "npm test --watch",
     "test:staged": "npm test --findRelatedTests",
-    "test:push": "npm teste --coverage"
+    "test:push": "npm test --coverage"
 
   },
   "keywords": [],
