@@ -4,9 +4,9 @@
   "description": "Setup básico para usar em projetos, typescript, eslint, jest eHusky &amp; Lint Staged (commit hooks)",
   "main": "index.js",
   "scripts": {
-    "build": "tsc",
+    "build": "tsc && tsc-alias",
     "start": "node dist/index.js",
-    "start:dev": "nodemon --watch \"src\" --exec \"ts-node src/index.ts\" -e ts",
+    "start:dev": "nodemon --watch \"src\" --exec \"ts-node -r tsconfig-paths/register src/index.ts\" -e ts",
     "husk:prepare": "husky init",
     "prepare": "husky",
     "test": "jest --passWithNoTests",
@@ -37,6 +37,8 @@
     "prettier": "^3.2.5",
     "ts-jest": "^29.1.2",
     "ts-node": "^10.9.2",
+    "tsc-alias": "^1.8.8",
+    "tsconfig-paths": "^4.2.0",
     "typescript": "^5.4.4"
   }
 }

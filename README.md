@@ -208,7 +208,23 @@ module.exports = {
     "@/(.*)": "<rootDir>/src/$1",
   },
 };
-
 ```
 
-rodamos o _test:watch_ para verificar se passou.
+rodamos o _test:watch_ para verificar se passou.'
+
+**Ajustes** essas configurações vão quebrar algumas coisas na aplicação:
+1 - _npm run start:dev_: para ajustar este erro temos de instalar como desenvolvimento o tsconfig_paths
+
+**npm install -D tsconfig-paths**: Vai ser usado no package.json depois do ts node na config do start:dev da seguinte forma depois do ts-node: _tsconfig-paths/register_
+
+```JSON
+ "start:dev": "nodemon --watch \"src\" --exec \"ts-node -r tsconfig-paths/register src/index.ts\" -e ts"
+```
+
+2 - _npm run build_: também vai quebrar, vamos ter de instalar como desenvolvimento o tsc-alias.
+
+**npm install -D tsc-alias**: ele substitui todos os arrobas no javascript pelo import mesmo, no script de build vamos configurar da seguinte forma:
+
+```JSON
+  "build": "tsc && tsc-alias",
+```
