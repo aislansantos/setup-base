@@ -126,7 +126,25 @@ module.exports = { extends: ["@commitlint/config-conventional"] };
 npx --no -- commitlint --edit ${1}
 ```
 
-
 ### JEST
 
 <b>npm install jest @types/jest ts-jest</b>
+
+<p>Criar um arquivo de jest.config.js e colocar dentro dele a seguinte config:</p>
+
+```javascript
+module.exports = {
+  roots: ["<rootDir>/src"],
+  collectCoverageFrom: ["<rootDir>/src/**/*.ts"],
+  coverageDirectory: "coverage",
+  testEnvironment: "node",
+  transform: {
+    ".+\\.ts$": "ts-jest",
+  },
+  moduleNameMapper: {
+    "@/(.*)": "<rootDir>/src/$1",
+  },
+};
+```
+
+

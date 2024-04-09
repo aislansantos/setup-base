@@ -6,7 +6,10 @@
   "scripts": {
     "start:dev": "nodemon --watch \"src\" --exec \"ts-node src/index.ts\" -e ts",
     "husk:prepare": "husky init",
-    "prepare": "husky"
+    "prepare": "husky",
+    "test": "jest --passWithNoTests",
+    "test:watch": "npm test --watch",
+    "teste:staged": "npm test --findRelatedTests"
   },
   "keywords": [],
   "author": "",
